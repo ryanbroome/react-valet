@@ -1,0 +1,129 @@
+﻿Capstone Two Ideas - Ryan Broome
+
+
+1- Valet Parking Application (First Pick) to track valet vehicles being parked and retrieved throughout the valet shift by various team members / locations. 
+A visual representation of the key box where all the vehicle details and customer phone numbers are stored in a database while their vehicles are kept in valet storage. The user would have full CRUD ability over vehicles in inventory. The database would also store an ongoing list of all vehicles parked for future addition of graphic / visual representation of historical data / reporting. A way to keep track of all the valet vehicles and who they belong to without paper tickets. 
+
+2- Wordle cheat App. Take the letters you know in the right and wrong place to suggest possible word solutions for wordle. There is something very similar to this already that is exactly what I was thinking. Would use the apple list of dictionary words to create a database of words and then filter and display those words based on user input to still available words or possible solutions. I’m not sure if a database would be needed for this or if it could just be saved and kept in a local file since it would just be a list of words that is being filtered and returned in a creative way. 
+
+3- Spiff tracker, would read an inbound csv file from a sales or repair order software system or by manual data entry. Compare that vs the set/ rotating spiff payment arrangement and be a programmed calculator to calculate monthly spiff bonus payouts and who it’s owed to them by. In spiff paid industries it can sometimes be difficult just keeping track of what you sold and who owes you extra money for selling it. Think being paid for selling tires and selling 75 tires in addition to 3000 other items that month. Keeping track of how many of each item sold and calculating total or generating invoice / make ledger entry to ensure the user feels confident they have been paid. This would be much simpler the better for the user, just uploading a file and selecting which items are paid at which rate and it would do the rest.
+
+
+What tech stack will you use for your final project? 
+React, Node, Express, Postgresql 
+
+
+2. Is the front-end UI or the back-end going to be the focus of your project? Or are you going to make an evenly focused full-stack application? 
+Full stack evenly focused application. 
+
+
+3. Will this be a website? A mobile app? Something else?
+Website, how could I make it a mobile app?
+
+
+4. What goal will your project be designed to achieve? 
+Organization of vehicle inventory and data logging for future analysis. 
+
+
+5. What kind of users will visit your app? In other words, what is the demographic of your users? 
+Valet drivers, those in valet business and those with a financial interest in valet operations
+
+
+6. What data do you plan on using?
+I was planning to make an API call to get current make / model information or to hard code make / model /color info. The data will be mostly entered by the user, think dropdowns to select which relevant vehicle info is being taken in. 
+
+
+How are you planning on collecting your data? 
+User form for data entry, API call to preload vehicle make and model information.
+
+
+You may have not picked your actual API yet, which is fine, just outline what kind of data you would like it to contain. 
+
+
+You are welcome to create your own API and populate it with data. 
+If you are using a Python/Flask stack are required to create your own API. 
+
+
+7. In brief, outline your approach to creating your project (knowing that you may not know everything in advance and that these details might change later). 
+My approach would be similar to the Jobly application we just built. I would build a database with a schema of a few tables, maybe one for vehicle information, one for employee information, another for relationship between employee that parked vehicle, employee that retrieved vehicle.
+
+
+Answer questions like the ones below, but feel free to add more information: 
+a. What does your database schema look like? 
+
+
+Vehicles
+* ID - PK
+* Make
+* Model
+* Color
+* Customer Phone
+* Datetime
+* Damages
+* Parked By?
+* Retrieved By?
+________________
+
+
+Employees
+* ID - PK
+* First Name
+* Last Name
+* Employee ID
+________________
+
+
+M2M assoc tables?
+Parked By
+* Emp ID
+* Vehicle ID
+* Datetime
+
+
+Retrieved By
+* Emp ID
+* Vehicle ID
+* Datetime
+
+
+
+
+b. What kinds of issues might you run into with your API? This is especially important if you are creating your own API, web scraping produces notoriously messy data. 
+* Not sure this will cause any API issues. Can implement a data validation to ensure clean data getting sent to the database. 
+
+
+c. Is there any sensitive information you need to secure? 
+* Customer phone numbers, 
+* authentication passwords.
+
+
+d. What functionality will your app include? 
+* Keep a current inventory of vehicles checked in to valet inventory, 
+* user can filter inventory of vehicles by multiple descriptive parameters, color, make, model, time
+* Will keep a log of all vehicles parked by each valet and a total count,
+* A couple other features like recalling a list of the last 5-10 vehicles info parked or pulled by a valet at any given time to find lost keys
+* Messaging between customer and valet
+* A closing feature where it will send a closing message to each customer if vehicle is in inventory at closing time,
+
+
+e. What will the user flow look like?
+* Home landing page w/ login / register authentication,
+* Navbar for navigating site,
+* Admin users can setup parking lots and access historical numbers,
+* User logs in will take them to their current inventory of vehicles, form to filter at top with various filter buttons / options
+* There will be an add button to add vehicles
+* Add form will be key piece, dropdowns to select vehicle info fast, if damage assessment is possible to do first, then vehicle info then customer info, or can do in any order, select phone or car which takes to form of either
+* Would be great to add a feature to get car info by plate,
+* Each “car” or “vehicle” will be displayed in a Card style fashion
+* Would be cool to make it look like a top down view of parking lot with little cars in each spot, styled like a game that resembles their lot
+
+
+f. What features make your site more than a CRUD app? What are your stretch goals?
+* Lost key emergency shout out, listing or auto texting last 5 vehicles the valet suspect lost keys was in.
+* Tracking who parked which vehicle in a log in itself is valuable to valet for when there are allegations 
+* Visually representing the vehicle inventory remotely so managers can keep tabs on who’s doing what / operational volumes.
+* Stretch goals would be using outside libraries to
+   * to implement some sort of visual data analysis, maybe starting with a simple graph of which valets are the most productive
+   * Automate as much of the form capture as possible, if can use a plate number to fill make / model info
+   * Add ability to take pictures of each vehicle and attach to their database entry
+   * Ability to have two way messaging in the app, so customers and valet’s can communicate
