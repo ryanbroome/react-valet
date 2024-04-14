@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot with logo 1`] = `
+<DocumentFragment>
+  <div
+    class="spinner-border text-primary"
+    role="status"
+  >
+    <span
+      class="visually-hidden"
+    />
+  </div>
+</DocumentFragment>
+`;
