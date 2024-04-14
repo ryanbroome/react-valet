@@ -2,10 +2,10 @@ import React from "react";
 import { Card, CardBody, CardTitle, CardSubtitle, ListGroup, ListGroupItem, CardText, Button } from "reactstrap";
 // import { Link } from "react-router-dom";
 
-const LocationCard = ({ location }) => {
-  if (!location) {
-    return null;
-  }
+const LocationCard = (location) => {
+  // if (!location) {
+  //   return null;
+  // }
   return (
     <Card
       color="light"
