@@ -3,6 +3,9 @@ import { Card, CardBody, CardTitle, CardSubtitle, ListGroup, ListGroupItem, Card
 // import { Link } from "react-router-dom";
 
 const LocationCard = ({ location }) => {
+  if (!location) {
+    return null;
+  }
   return (
     <Card
       color="light"

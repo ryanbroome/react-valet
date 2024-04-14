@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <form
+      class=""
+    >
+      <button
+        class="btn btn-primary"
+      >
+        Find
+      </button>
+      <div
+        class="col-md-10"
+      >
+        <div
+          class="position-relative form-group"
+        >
+          <input
+            class="form-control"
+            id="mobile"
+            name="mobile"
+            placeholder="mobile"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </form>
+    <button
+      class="btn btn-warning"
+      type="button"
+    >
+      Show All
+    </button>
+    <button
+      class="btn btn-danger"
+      type="button"
+    >
+      Lost Keys
+    </button>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class=""
+  >
+    <h3>
+      Add Vehicle
+    </h3>
+    <div
+      class="position-relative form-group"
+    >
+      <label
+        class=""
+        for="ticketNum"
+      />
+      <input
+        class="form-control"
+        id="ticketNum"
+        name="ticketNum"
+        placeholder="ticketnum"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="position-relative form-group"
+    >
+      <label
+        class=""
+        for="mobile"
+      />
+      <input
+        class="form-control"
+        id="mobile"
+        name="mobile"
+        placeholder="mobile"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="position-relative form-group"
+    >
+      <label
+        class=""
+        for="color"
+      />
+      <input
+        class="form-control"
+        id="color"
+        name="color"
+        placeholder="color"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="position-relative form-group"
+    >
+      <label
+        class=""
+        for="make"
+      />
+      <input
+        class="form-control"
+        id="make"
+        name="make"
+        placeholder="make"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="position-relative form-group"
+    >
+      <label
+        class=""
+        for="damages"
+      />
+      <input
+        class="form-control"
+        id="damages"
+        name="damages"
+        placeholder="damages"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="position-relative form-group"
+    >
+      <label
+        class=""
+        for="notes"
+      />
+      <input
+        class="form-control"
+        id="notes"
+        name="notes"
+        placeholder="notes"
+        type="text"
+        value=""
+      />
+    </div>
+    <button
+      class="btn btn-primary"
+    >
+      Add
+    </button>
+  </form>
+</DocumentFragment>
+`;

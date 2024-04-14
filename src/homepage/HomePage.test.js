@@ -1,15 +1,15 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
-import About from "./About";
-import { UserProvider } from "../testUtils";
+import HomePage from "./HomePage";
+import { MockUserContext } from "../testUtils";
 
 it("matches snapshot", function () {
   const { asFragment } = render(
     <MemoryRouter>
-      <UserProvider>
-        <About />
-      </UserProvider>
+      <MockUserContext>
+        <HomePage />
+      </MockUserContext>
     </MemoryRouter>
   );
   expect(asFragment()).toMatchSnapshot();
@@ -18,9 +18,9 @@ it("matches snapshot", function () {
 it("matches snapshot when logged out", function () {
   const { asFragment } = render(
     <MemoryRouter>
-      <UserProvider currentUser={null}>
-        <About />
-      </UserProvider>
+      <MockUserContext currentUser={null}>
+        <HomePage />
+      </MockUserContext>
     </MemoryRouter>
   );
   expect(asFragment()).toMatchSnapshot();

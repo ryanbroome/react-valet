@@ -101,7 +101,7 @@ const NavHead = () => {
             to="/"
             className="nav-link"
             activeClassName="active">
-            Valet Home
+            Home
           </NavLink>
         </NavItem>
 

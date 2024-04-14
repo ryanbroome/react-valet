@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class=""
+  >
+    <h3>
+      New User Form
+    </h3>
+    <div
+      class="position-relative form-group"
+    >
+      <label
+        class=""
+        for="username"
+      />
+      <input
+        class="form-control"
+        id="username"
+        name="username"
+        placeholder="username"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="position-relative form-group"
+    >
+      <label
+        class=""
+        for="password"
+      />
+      <input
+        class="form-control"
+        id="password"
+        name="password"
+        placeholder="password"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="position-relative form-group"
+    >
+      <label
+        class=""
+        for="firstName"
+      />
+      <input
+        class="form-control"
+        id="firstName"
+        name="firstName"
+        placeholder="firstname"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="position-relative form-group"
+    >
+      <label
+        class=""
+        for="lastName"
+      />
+      <input
+        class="form-control"
+        id="lastName"
+        name="lastName"
+        placeholder="lastname"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="position-relative form-group"
+    >
+      <label
+        class=""
+        for="email"
+      />
+      <input
+        class="form-control"
+        id="email"
+        name="email"
+        placeholder="email"
+        type="email"
+        value=""
+      />
+    </div>
+    <div
+      class="position-relative form-group"
+    >
+      <label
+        class=""
+        for="phone"
+      />
+      <input
+        class="form-control"
+        id="phone"
+        name="phone"
+        placeholder="phone"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="position-relative form-group"
+    >
+      <label
+        class=""
+        for="locationId"
+      />
+      <input
+        class="form-control"
+        id="locationId"
+        name="locationId"
+        placeholder="locationid"
+        type="text"
+        value=""
+      />
+    </div>
+    <button
+      class="btn btn-primary"
+    >
+      Register
+    </button>
+  </form>
+</DocumentFragment>
+`;

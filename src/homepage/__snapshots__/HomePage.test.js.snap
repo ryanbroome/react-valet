@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <h1>
+      Welcome To Park Pilot
+    </h1>
+    <div>
+      <div
+        class="text-center card card-body bg-light"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            Current User 
+          </h5>
+          <h6
+            class="card-subtitle"
+          >
+            testuser
+          </h6>
+          <ul
+            class="list-group"
+          >
+            <li
+              class="list-group-item"
+            >
+              Lifetime Parked: 
+            </li>
+            <li
+              class="list-group-item"
+            >
+              Name:  
+            </li>
+            <li
+              class="list-group-item"
+            >
+              Phone: 
+            </li>
+            <li
+              class="list-group-item"
+            >
+              Email: 
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`matches snapshot when logged out 1`] = `
+<DocumentFragment>
+  <div>
+    <h1>
+      Welcome To Park Pilot
+    </h1>
+    <div>
+      <div
+        class="text-center card card-body bg-light"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            Current User 
+          </h5>
+          <h6
+            class="card-subtitle"
+          >
+            testuser
+          </h6>
+          <ul
+            class="list-group"
+          >
+            <li
+              class="list-group-item"
+            >
+              Lifetime Parked: 
+            </li>
+            <li
+              class="list-group-item"
+            >
+              Name:  
+            </li>
+            <li
+              class="list-group-item"
+            >
+              Phone: 
+            </li>
+            <li
+              class="list-group-item"
+            >
+              Email: 
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
