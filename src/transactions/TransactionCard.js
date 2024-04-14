@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Card, CardBody, CardTitle, CardSubtitle, ListGroup, ListGroupItem, CardText } from "reactstrap";
-import TransactionList from "./TransactionList";
+// import TransactionList from "./TransactionList";
 
 const TransactionCard = ({ transaction, checkout }) => {
   return (
@@ -23,12 +23,12 @@ const TransactionCard = ({ transaction, checkout }) => {
         </ListGroup>
 
         <ListGroup>
-          <ListGroupItem>
+          {/* <ListGroupItem>
             Parked By Valet: {transaction.firstName} {transaction.lastName}
           </ListGroupItem>
           <ListGroupItem>In Time: {transaction.checkIn}</ListGroupItem>
           <ListGroupItem>Damages: {transaction.damages}</ListGroupItem>
-          <ListGroupItem>Notes: {transaction.notes}</ListGroupItem>
+          <ListGroupItem>Notes: {transaction.notes}</ListGroupItem> */}
           <button
             onClick={() => {
               checkout(transaction.username, transaction.vehicleId);
@@ -42,7 +42,8 @@ const TransactionCard = ({ transaction, checkout }) => {
           <ListGroupItem>
             <b>Transaction Info</b>
           </ListGroupItem> */}
-          {/* <ListGroupItem>Trans: {transaction.transactionId}</ListGroupItem> */}
+
+          <ListGroupItem>T.ID: {transaction.transactionId}</ListGroupItem>
           {/* <ListGroupItem>Ticket:{transaction.ticketNum}</ListGroupItem> */}
           {/* <ListGroupItem>Trans Time: {transaction.transactionTime}</ListGroupItem> */}
           {/* <ListGroupItem>

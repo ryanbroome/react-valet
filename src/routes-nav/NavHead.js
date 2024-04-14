@@ -3,14 +3,14 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
 import { Nav, NavItem, Button } from "reactstrap";
-import ThemeContext from "./ThemeContext";
+import UserContext from "../auth/UserContext";
 
 /**NavHead Component to render a NavBar, different Items rendered based on if logged in user present
  *
  * **/
 
 const NavHead = () => {
-  const { token, logout, userDetail } = useContext(ThemeContext);
+  const { token, logout, userDetail } = useContext(UserContext);
 
   function isLoggedIn() {
     return (
@@ -28,22 +28,21 @@ const NavHead = () => {
         </NavItem>
 
         <NavItem>
-          <NavLink
-            exact
-            to="/about"
-            className="nav-link"
-            activeClassName="active">
-            About
-          </NavLink>
+          <Button
+            color="danger"
+            onClick={logout}
+            size="sm">
+            Logout
+          </Button>
         </NavItem>
 
         <NavItem>
           <NavLink
             exact
-            to="/profile"
+            to="/updateProfile"
             className="nav-link"
             activeClassName="active">
-            Profile
+            Update Profile
           </NavLink>
         </NavItem>
 
@@ -70,6 +69,16 @@ const NavHead = () => {
         <NavItem>
           <NavLink
             exact
+            to="/addLocation"
+            className="nav-link"
+            activeClassName="active">
+            Add Location
+          </NavLink>
+        </NavItem>
+
+        <NavItem>
+          <NavLink
+            exact
             // ?
             to="/addVehicle"
             className="nav-link"
@@ -77,20 +86,10 @@ const NavHead = () => {
             Add Vehicle
           </NavLink>
         </NavItem>
-
-        <NavItem>
-          <Button
-            color="danger"
-            onClick={logout}
-            size="sm">
-            Logout
-          </Button>
-        </NavItem>
       </Nav>
     );
   }
 
-  // JSX to return when no valid token present in userContext
   function isLoggedOut() {
     return (
       <Nav
@@ -103,6 +102,16 @@ const NavHead = () => {
             className="nav-link"
             activeClassName="active">
             Valet Home
+          </NavLink>
+        </NavItem>
+
+        <NavItem>
+          <NavLink
+            exact
+            to="/about"
+            className="nav-link"
+            activeClassName="active">
+            About
           </NavLink>
         </NavItem>
 

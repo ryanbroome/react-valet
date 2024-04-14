@@ -1,22 +1,16 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { FormGroup, Form, Input, Label, Button } from "reactstrap";
-import ThemeContext from "./ThemeContext";
+import { FormGroup, Form, Input, Label, Button, FormText } from "reactstrap";
+import UserContext from "../auth/UserContext";
 
-// add method either passed as props or saved in context ?
-const AddVehicleForm = () => {
-  const { addVehicle } = useContext(ThemeContext);
+const AddLocationForm = () => {
   const history = useHistory();
+  const { addLocation } = useContext(UserContext);
 
   const INITIAL_STATE = {
-    ticketNum: "",
-    // vehicleStatus: "parked",
-    mobile: "",
-    color: "",
-    make: "",
-    damages: "",
-    notes: "",
+    sitename: "",
   };
+
   const [formData, setFormData] = useState(INITIAL_STATE);
 
   const handleChange = (e) => {
@@ -29,15 +23,15 @@ const AddVehicleForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // method to update parent state to trigger adding vehicle and transaction
-    addVehicle(formData.ticketNum, "parked", formData.mobile, formData.color, formData.make, formData.damages, formData.notes);
+    addLocation(formData.sitename);
     setFormData(INITIAL_STATE);
-    history.push(`/activeGarage`);
+    history.push(`/`);
   };
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h3>Add Vehicle</h3>
+      <h3>New Location Form</h3>
+      <Button color="primary">Add Location</Button>
       {Object.keys(INITIAL_STATE).map((val, idx) => (
         <FormGroup key={`FormGroup-${val}`}>
           <Label
@@ -46,17 +40,15 @@ const AddVehicleForm = () => {
           <Input
             id={val}
             key={`Input-${val}`}
-            type={val !== "email" ? "text" : "email"}
+            type="text"
             name={val}
             placeholder={val.toLowerCase()}
             value={formData[val]}
             onChange={handleChange}></Input>
         </FormGroup>
       ))}
-
-      <Button color="primary">Add</Button>
     </Form>
   );
 };
 
-export default AddVehicleForm;
+export default AddLocationForm;

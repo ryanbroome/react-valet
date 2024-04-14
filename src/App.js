@@ -4,15 +4,14 @@ import { useHistory } from "react-router-dom";
 
 import "./App.css";
 import ValetApi from "./api/Api";
-import ThemeContext from "./ThemeContext";
+import UserContext from "./auth/UserContext";
 
-import Routes from "./Routes";
-import NavHead from "./NavHead";
+import Routes from "./routes-nav/Routes";
+import NavHead from "./routes-nav/NavHead";
 
 function App() {
   const [token, setToken] = useState(() => localStorage.getItem("token") || null);
   const [userDetail, setUserDetail] = useState(JSON.parse(localStorage.getItem("userDetail")) || null);
-  // const [isLoading, setIsLoading] = useState(true);
 
   const history = useHistory();
 
@@ -25,7 +24,6 @@ function App() {
       // set state token, userDetails
       setToken(res.data.token);
       setUserDetail(userRes.data.user);
-      // setIsLoading(false);
 
       // set token on API helper class (needed for valid requests)
       ValetApi.token = res.data.token;
@@ -33,9 +31,7 @@ function App() {
       // save token and userDetails to localStorage to persist if refresh
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("userDetail", JSON.stringify(userRes.data.user));
-
-      // redirect to parked vehicles page
-      // history.push("/vehicles/status/parked");
+      // redirect
       history.push("/transactions/active");
     } catch (err) {
       console.error(err);
@@ -114,12 +110,24 @@ function App() {
     }
   };
 
+  const addLocation = async (sitename) => {
+    try {
+      const createLocationRes = await ValetApi.createLocation(sitename);
+      console.log(createLocationRes.data, "CREATE LOCATION RES.DATA");
+      const newLocationId = createLocationRes.data.location.success;
+      alert(`Location with sitename ${sitename} and with ID ${newLocationId} successfully created, you'll want to keep track of that location ID to register new users with`);
+      history.push("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="App">
-      <ThemeContext.Provider value={{ token, userDetail, login, register, update, logout, addVehicle }}>
+      <UserContext.Provider value={{ token, userDetail, login, register, update, logout, addVehicle, addLocation }}>
         <NavHead />
         <Routes />
-      </ThemeContext.Provider>
+      </UserContext.Provider>
     </div>
   );
 }

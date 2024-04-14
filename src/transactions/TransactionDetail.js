@@ -1,17 +1,12 @@
 import { Card, CardBody, CardTitle, CardSubtitle, ListGroup, ListGroupItem, CardText, Button } from "reactstrap";
-import ThemeContext from "./ThemeContext";
 
 import React, { useEffect, useState, useContext } from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
-import ValetApi from "./api/Api";
+import ValetApi from "../api/Api";
 
 const TransactionDetail = () => {
-  // ? How to pass transaction.id
   const { id } = useParams();
-  // console.log("TRANSACTION DETAIL ID=> ", id);
-  // const [transactionIdSearchTerm, setTransactionIdSearchTerm] = useState(id);
   const [transaction, setTransaction] = useState();
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(
     function fetchTransactionsAtMount() {
@@ -19,7 +14,6 @@ const TransactionDetail = () => {
         try {
           const transactionRes = await ValetApi.getTransactionById(id);
           setTransaction(transactionRes.data.transactions);
-          setIsLoading(false);
         } catch (err) {
           console.log(err);
         }
@@ -29,7 +23,7 @@ const TransactionDetail = () => {
     [id]
   );
 
-  function loggedIn(transaction) {
+  function viewTransaction(transaction) {
     return (
       <Card
         color="dark"
@@ -59,21 +53,23 @@ const TransactionDetail = () => {
             <ListGroupItem>Last: {transaction.lastName}</ListGroupItem>
             <ListGroupItem>Phone: {transaction.phone}</ListGroupItem>
             <ListGroupItem>Email: {transaction.email}</ListGroupItem>
-            <ListGroupItem>TotalParked: {transaction.totalParked > 0 ? transaction.totalParked : "None"}</ListGroupItem>
+            <ListGroupItem>TotalParked: {Number(transaction.totalParked) > 0 ? transaction.totalParked : "None"}</ListGroupItem>
           </ListGroup>
         </CardBody>
       </Card>
     );
   }
 
-  function loggedOut() {
+  function showSpinner() {
     return (
-      <div>
-        <p>Loading Spinner</p>
+      <div
+        className="spinner-border text-primary"
+        role="status">
+        <span className="visually-hidden"></span>
       </div>
     );
   }
-  return transaction ? loggedIn(transaction) : loggedOut();
+  return transaction ? viewTransaction(transaction) : showSpinner();
 };
 
 export default TransactionDetail;

@@ -1,19 +1,15 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useHistory, Link } from "react-router-dom";
-import { FormGroup, Form, Input, Label, Button } from "reactstrap";
+import { useHistory } from "react-router-dom";
+// import { FormGroup, Form, Input, Label, Button } from "reactstrap";
 
-import ValetApi from "./api/Api";
-// import AddVehicleForm from "./AddVehicleForm";
+import ValetApi from "../api/Api";
 
-import TransactionSearchForm from "./TransactionSearchForm";
+import TransactionSearchForm from "../forms/TransactionSearchForm";
 import TransactionCard from "./TransactionCard";
-import ThemeContext from "./ThemeContext";
-
-// import VehicleCard from "./VehicleCard";
+import UserContext from "../auth/UserContext";
 
 const TransactionList = () => {
-  const { userDetail, token } = useContext(ThemeContext);
-  // const [mobileSearchTerm, setMobileSearchTerm] = useState("''");
+  const { userDetail, token } = useContext(UserContext);
   const [transactions, setTransactions] = useState([]);
   const history = useHistory();
 
@@ -63,32 +59,32 @@ const TransactionList = () => {
     }
   };
 
-  //TODO doesnt work need to pass in vehicleID, transactionID not sure I want to delete a vehicle
-  const handleRemove = async (vehicleId, transactionId) => {
-    await ValetApi.deleteVehicle(vehicleId);
-    await ValetApi.deleteTransaction(transactionId);
-    // remove from local storage
-    history.push("/transactions/active");
+  const handleLostKeys = async (locationId, userId) => {
+    try {
+      const searchRes = await ValetApi.lostKeys(locationId, userId);
+      setTransactions([...searchRes.data.transactions]);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  // *What to render if token present or not
   function loggedIn(transactions) {
     return (
       <div>
         <TransactionSearchForm
           search={handleSearchByMobile}
           reset={handleReset}
+          lostKeys={handleLostKeys}
         />
         {transactions.length > 0
           ? transactions.map((trans) => (
-              <div key={`Transaction-${trans.transactionId}`}>
-                <TransactionCard
-                  transaction={trans}
-                  checkout={checkout}
-                />
-              </div>
+              <TransactionCard
+                key={`TransactionCard-${trans.transactionId}`}
+                transaction={trans}
+                checkout={checkout}
+              />
             ))
-          : "false"}
+          : "No Vehicles Active at this location"}
       </div>
     );
   }

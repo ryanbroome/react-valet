@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import ThemeContext from "./ThemeContext";
+import UserContext from "../auth/UserContext";
 import { FormGroup, Form, Input, Label, Button } from "reactstrap";
 
 const ProfileForm = () => {
-  const { userDetail, update } = useContext(ThemeContext);
+  const { userDetail, update } = useContext(UserContext);
   const history = useHistory();
 
   // ?username if updated?

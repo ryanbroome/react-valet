@@ -1,22 +1,22 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { FormGroup, Form, Input, Label, Button } from "reactstrap";
-import ThemeContext from "./ThemeContext";
+import UserContext from "../auth/UserContext";
 
-const RegisterForm = () => {
+// add method either passed as props or saved in context ?
+const AddVehicleForm = () => {
+  const { addVehicle } = useContext(UserContext);
   const history = useHistory();
-  const { register } = useContext(ThemeContext);
 
   const INITIAL_STATE = {
-    username: "",
-    password: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    locationId: "",
+    ticketNum: "",
+    // vehicleStatus: "parked",
+    mobile: "",
+    color: "",
+    make: "",
+    damages: "",
+    notes: "",
   };
-
   const [formData, setFormData] = useState(INITIAL_STATE);
 
   const handleChange = (e) => {
@@ -29,16 +29,15 @@ const RegisterForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // method to update parent state to trigger authentication and saving of token in context
-    register(formData.username, formData.password, formData.firstName, formData.lastName, formData.email, formData.phone, formData.locationId);
+    // method to update parent state to trigger adding vehicle and transaction
+    addVehicle(formData.ticketNum, "parked", formData.mobile, formData.color, formData.make, formData.damages, formData.notes);
     setFormData(INITIAL_STATE);
-    // *
-    history.push(`/`);
+    history.push(`/activeGarage`);
   };
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h3>New User Form</h3>
+      <h3>Add Vehicle</h3>
       {Object.keys(INITIAL_STATE).map((val, idx) => (
         <FormGroup key={`FormGroup-${val}`}>
           <Label
@@ -55,9 +54,9 @@ const RegisterForm = () => {
         </FormGroup>
       ))}
 
-      <Button color="primary">Register</Button>
+      <Button color="primary">Add</Button>
     </Form>
   );
 };
 
-export default RegisterForm;
+export default AddVehicleForm;

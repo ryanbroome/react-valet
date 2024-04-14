@@ -1,14 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
 
-import ThemeContext from "./ThemeContext";
-import { Card, CardBody, CardTitle, CardSubtitle, ListGroup, ListGroupItem, CardText, Button } from "reactstrap";
-// import Transactions from "./Transactions";
+// import { Card, CardBody, CardTitle, CardSubtitle, ListGroup, ListGroupItem, CardText, Button } from "reactstrap";
 
 import LocationCard from "./LocationCard.js";
-import ValetApi from "./api/Api";
+import ValetApi from "../api/Api.js";
 
-const LocationPage = () => {
+const LocationDetail = () => {
   const { id } = useParams();
   const [location, setLocation] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -30,17 +28,18 @@ const LocationPage = () => {
   );
   if (loading) {
     return (
-      <div>
-        <span>Loading Spinner</span>
+      <div
+        className="spinner-border text-primary"
+        role="status">
+        <span className="visually-hidden"></span>
       </div>
     );
   } else
     return (
       <div>
         <LocationCard location={location} />
-        <p>{location ? location.sitename : ""}</p>
       </div>
     );
 };
 
-export default LocationPage;
+export default LocationDetail;

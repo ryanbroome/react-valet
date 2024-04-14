@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { FormGroup, Form, Input, Label, Button } from "reactstrap";
-import ThemeContext from "./ThemeContext";
+import UserContext from "./UserContext";
 
 const LoginForm = () => {
   const history = useHistory();
-  const { login } = useContext(ThemeContext);
+  const { login } = useContext(UserContext);
 
   const INITIAL_STATE = {
     username: "",
@@ -24,7 +24,6 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // method to update parent state to trigger authentication and saving of token in context
     login(formData.username, formData.password);
     setFormData(INITIAL_STATE);
     history.push(`/`);

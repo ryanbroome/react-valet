@@ -5,13 +5,11 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 /** Api Class
  *
  * Static class tying together the methods used to get/send to the API.
- * All the API aware stuff should go in here to make requests to API
  */
 
 class ValetApi {
   static token;
 
-  // method to make requests to my api using the hardcoded token until I get finished with setup
   static async request(endpoint, data = {}, method = "get") {
     console.log("API CALL", endpoint, data, method);
 
@@ -32,11 +30,12 @@ class ValetApi {
   }
 
   //?         -----AUTH METHODS-----
+  // TODO leftOffHere added locationId
   static async validateUser(username, password) {
     const res = this.request(`auth/token`, { username, password }, "post");
     return res;
   }
-  static async registerUser(username, password, firstName, lastName, email, phone, totalParked = 0, isAdmin = false, locationId = 1) {
+  static async registerUser(username, password, firstName, lastName, email, phone, locationId, totalParked = 0, isAdmin = false) {
     const res = await this.request(`auth/register`, { username, password, firstName, lastName, email, phone, totalParked, isAdmin, locationId }, "POST");
     return res;
   }
@@ -168,22 +167,6 @@ class ValetApi {
   static async removeLocation(id) {
     const res = await this.request(`locaations/${id}`, {}, "delete");
   }
-
-  // TODO LeftOffHere
-  // todo go back to valet backend and make a route to search transactions by vehicle.mobile. Same as vehicles getByMobile
-  // todo leftOffHere Make API methods for transaction methods.
-  // todo just mimick the ones you made for vehicles. All data columns are returned so we can pick and choose what we want to show.
-  // todo let's start with making all the routes defined in backend work.
-  // todo transactions/location/:locationId/status/:status GET
-  // todo transactions/location/:locationId/user/:userId GET
-  // todo transactions/range {req.body = startEnd Year, Month, Day} GET
-  // todo transactions/:id GET
-  // todo transactions/:id PATCH
-  // todo create addVehicle form, form should add a vehicle and a transaction to the database at the same time
-  // todo create button to "checkout" or make a PATCH request to update the vehicle.check_out to CURRENT_TIMESTAMP
-  // todo create a button for "lostKey" route, this should return ALL transaction data for the current userId limit to the last 10 transactions
-
-  // * transaction methods
 }
 
 // *token needed for interacting with API, this is here for development

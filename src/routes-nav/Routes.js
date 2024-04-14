@@ -1,26 +1,22 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import HomePage from "./HomePage";
-import About from "./About";
+import HomePage from "../homepage/HomePage";
+import About from "../homepage/About";
 
-// import VehicleList from "./VehicleList";
-// import VehicleDetail from "./VehicleDetail";
-// import Transactions from "./Transactions";
-// import Garage from "./garage/Garage";
-// import ActiveGarage from "./AllVehiclesGarage";
+import AddVehicleForm from "../forms/AddVehicleForm";
+import AddLocationForm from "../forms/AddLocationForm";
 
-import AddVehicleForm from "./AddVehicleForm";
-import TransactionList from "./TransactionList";
-import TransactionDetail from "./TransactionDetail";
+import TransactionList from "../transactions/TransactionList";
+import TransactionDetail from "../transactions/TransactionDetail";
 
-import LocationPage from "./LocationPage";
+import LocationDetail from "../location/LocationDetail";
 
-import Profile from "./Profile";
-import LoginForm from "./LoginForm";
-import RegisterForm from "./RegisterForm";
+import ProfileForm from "../forms/ProfileForm";
+import LoginForm from "../auth/LoginForm";
+import RegisterForm from "../auth/RegisterForm";
 
-import NotFound from "./NotFound";
+import NotFound from "../NotFound";
 
 const Routes = () => {
   //
@@ -52,14 +48,20 @@ const Routes = () => {
 
       <Route
         exact
-        path="/profile">
-        <Profile />
+        path="/updateProfile">
+        <ProfileForm />
       </Route>
 
       <Route
         exact
         path="/addVehicle">
         <AddVehicleForm />
+      </Route>
+
+      <Route
+        exact
+        path="/addLocation">
+        <AddLocationForm />
       </Route>
 
       <Route
@@ -77,7 +79,7 @@ const Routes = () => {
       <Route
         exact
         path="/locations/id/:id">
-        <LocationPage />
+        <LocationDetail />
       </Route>
 
       <Route>
