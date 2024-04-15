@@ -10,7 +10,6 @@ const AddVehicleForm = () => {
 
   const INITIAL_STATE = {
     ticketNum: "",
-    // vehicleStatus: "parked",
     mobile: "",
     color: "",
     make: "",
@@ -29,10 +28,9 @@ const AddVehicleForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // method to update parent state to trigger adding vehicle and transaction
     addVehicle(formData.ticketNum, "parked", formData.mobile, formData.color, formData.make, formData.damages, formData.notes);
     setFormData(INITIAL_STATE);
-    history.push(`/activeGarage`);
+    history.push(`/transactions/active`);
   };
 
   return (
@@ -40,9 +38,6 @@ const AddVehicleForm = () => {
       <h3>Add Vehicle</h3>
       {Object.keys(INITIAL_STATE).map((val, idx) => (
         <FormGroup key={`FormGroup-${val}`}>
-          <Label
-            htmlFor={val}
-            key={`Label-${idx}`}></Label>
           <Input
             id={val}
             key={`Input-${val}`}
@@ -50,7 +45,11 @@ const AddVehicleForm = () => {
             name={val}
             placeholder={val.toLowerCase()}
             value={formData[val]}
-            onChange={handleChange}></Input>
+            onChange={handleChange}
+          />
+          <Label
+            htmlFor={val}
+            key={`Label-${idx}`}></Label>
         </FormGroup>
       ))}
 

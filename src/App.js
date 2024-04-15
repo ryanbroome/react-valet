@@ -1,3 +1,5 @@
+// TODO fix placeholder , Rendered Components vs NavHead component not looking good
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
@@ -58,7 +60,7 @@ function App() {
 
       // redirect to parked vehicles page
       // history.push("/vehicles/status/parked");
-      history.push("/transactions/active");
+      history.push("/");
     } catch (err) {
       console.log(err);
     }
@@ -102,7 +104,7 @@ function App() {
       // const parkOneRes =
       setUserDetail({ ...userDetail, totalParked: userDetail.totalParked + 1 });
 
-      history.push("/");
+      // history.push("/transactions/active");
 
       // save to localStorage?
     } catch (err) {
@@ -126,6 +128,11 @@ function App() {
     <div className="App">
       <UserContext.Provider value={{ token, userDetail, login, register, update, logout, addVehicle, addLocation }}>
         <NavHead />
+        <p
+          height="200px"
+          style={{ margin: "100px" }}>
+          {" "}
+        </p>
         <Routes />
       </UserContext.Provider>
     </div>

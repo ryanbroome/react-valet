@@ -2,91 +2,85 @@ import React, { useContext } from "react";
 
 import { NavLink } from "react-router-dom";
 
-import { Nav, NavItem, Button } from "reactstrap";
+import { Nav, NavItem, Navbar } from "reactstrap";
 import UserContext from "../auth/UserContext";
 
-/**NavHead Component to render a NavBar, different Items rendered based on if logged in user present
+/**NavHead Component to render a Navbar, different Items rendered based on if logged in user present
  *
  * **/
 
 const NavHead = () => {
-  const { token, logout, userDetail } = useContext(UserContext);
+  const { token, userDetail } = useContext(UserContext);
 
   function isLoggedIn() {
     return (
-      <Nav
-        justified
-        pills>
-        <NavItem>
-          <NavLink
-            exact
-            to="/"
-            className="nav-link"
-            activeClassName="active">
-            Home
-          </NavLink>
-        </NavItem>
+      <Navbar>
+        <Nav
+          justified
+          pills
+          expand="lg"
+          className="fixed-top bg-light">
+          <NavItem>
+            <NavLink
+              exact
+              to="/"
+              className="nav-link"
+              activeClassName="active">
+              Home Page
+            </NavLink>
+          </NavItem>
 
-        <NavItem>
-          <Button
-            color="danger"
-            onClick={logout}
-            size="sm">
-            Logout
-          </Button>
-        </NavItem>
+          <NavItem>
+            <NavLink
+              exact
+              to="/updateProfile"
+              className="nav-link"
+              activeClassName="active">
+              Update Profile
+            </NavLink>
+          </NavItem>
 
-        <NavItem>
-          <NavLink
-            exact
-            to="/updateProfile"
-            className="nav-link"
-            activeClassName="active">
-            Update Profile
-          </NavLink>
-        </NavItem>
+          <NavItem>
+            <NavLink
+              exact
+              to={`/locations/id/${userDetail ? userDetail.locationId : ""}`}
+              className="nav-link"
+              activeClassName="active">
+              Location
+            </NavLink>
+          </NavItem>
 
-        <NavItem>
-          <NavLink
-            exact
-            to={`/locations/id/${userDetail ? userDetail.locationId : ""}`}
-            className="nav-link"
-            activeClassName="active">
-            Location
-          </NavLink>
-        </NavItem>
+          <NavItem>
+            <NavLink
+              exact
+              to={`/transactions/active`}
+              className="nav-link"
+              activeClassName="active">
+              Active Garage
+            </NavLink>
+          </NavItem>
 
-        <NavItem>
-          <NavLink
-            exact
-            to={`/transactions/active`}
-            className="nav-link"
-            activeClassName="active">
-            Active Garage
-          </NavLink>
-        </NavItem>
+          <NavItem>
+            <NavLink
+              exact
+              to="/addLocation"
+              className="nav-link"
+              activeClassName="active">
+              Add Location
+            </NavLink>
+          </NavItem>
 
-        <NavItem>
-          <NavLink
-            exact
-            to="/addLocation"
-            className="nav-link"
-            activeClassName="active">
-            Add Location
-          </NavLink>
-        </NavItem>
-
-        <NavItem>
-          <NavLink
-            exact
-            // ?
-            to="/addVehicle"
-            className="nav-link"
-            activeClassName="active">
-            Add Vehicle
-          </NavLink>
-        </NavItem>
-      </Nav>
+          <NavItem>
+            <NavLink
+              exact
+              to="/addVehicle"
+              className="nav-link"
+              activeClassName="active">
+              Add Vehicle
+            </NavLink>
+          </NavItem>
+        </Nav>
+      </Navbar>
     );
   }
 

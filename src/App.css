@@ -39,7 +39,25 @@
 }
 
 body {
-  /* background-image: url("./images/logoLarge.jpg");
-   */
-  background-color: cornsilk;
+  background-color: #2f4772;
+}
+
+h3, label {
+  color: white;
+}
+
+h1 {
+  color: #eb5128
+}
+
+.About-subtitle {
+  color: #eb5128
+}
+
+.About-text {
+  color: white;
+  margin: 20px;
+  border: 1px solid #eb5128;
+  padding: 10px;
+  border-radius: 2%;
 }

@@ -30,7 +30,6 @@ class ValetApi {
   }
 
   //?         -----AUTH METHODS-----
-  // TODO leftOffHere added locationId
   static async validateUser(username, password) {
     const res = this.request(`auth/token`, { username, password }, "post");
     return res;
@@ -53,12 +52,10 @@ class ValetApi {
     const res = await this.request(`users/${username}`, data, "patch");
     return res;
   }
-
   static async parkOne(username) {
     const res = await this.request(`users/parkOne/${username}`, {}, "patch");
     return res;
   }
-
   static async removeUserByUsername(username) {
     const res = await this.request(`users/${username}`, {}, "delete");
     return res;

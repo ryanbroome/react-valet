@@ -2,20 +2,22 @@
 
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
-  <div>
-    <form
-      class=""
+  <form
+    class="fixed-bottom bg-dark"
+    zindex="-1"
+  >
+    <div
+      class="row-cols-lg-auto g-3 align-items-end row"
     >
-      <button
-        class="btn btn-primary"
-      >
-        Find
-      </button>
       <div
-        class="col-md-10"
+        class="col"
       >
+        <label
+          class="visually-hidden"
+          for="mobile"
+        />
         <div
-          class="position-relative form-group"
+          class="input-group"
         >
           <input
             class="form-control"
@@ -25,21 +27,43 @@ exports[`matches snapshot 1`] = `
             type="text"
             value=""
           />
+          <button
+            class="btn btn-success"
+          >
+            Find Mobile
+          </button>
         </div>
       </div>
-    </form>
-    <button
-      class="btn btn-warning"
-      type="button"
+    </div>
+    <div
+      class="row"
     >
-      Show All
-    </button>
-    <button
-      class="btn btn-danger"
-      type="button"
+        =========================================================
+    </div>
+    <div
+      class="row"
     >
-      Lost Keys
-    </button>
-  </div>
+      <div
+        class="col"
+      >
+        <button
+          class="btn btn-success"
+          type="button"
+        >
+          Show All
+        </button>
+      </div>
+      <div
+        class="col"
+      >
+        <button
+          class="btn btn-danger"
+          type="button"
+        >
+          Lost Keys
+        </button>
+      </div>
+    </div>
+  </form>
 </DocumentFragment>
 `;

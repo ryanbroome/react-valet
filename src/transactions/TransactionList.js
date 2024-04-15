@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
-// import { FormGroup, Form, Input, Label, Button } from "reactstrap";
 
 import ValetApi from "../api/Api";
 
@@ -8,10 +7,13 @@ import TransactionSearchForm from "../forms/TransactionSearchForm";
 import TransactionCard from "./TransactionCard";
 import UserContext from "../auth/UserContext";
 
+/** Show Transactions for active user location
+ *
+ * **/
 const TransactionList = () => {
+  const history = useHistory();
   const { userDetail, token } = useContext(UserContext);
   const [transactions, setTransactions] = useState([]);
-  const history = useHistory();
 
   useEffect(
     function fetchTransactionsWhenMounted() {
@@ -25,7 +27,7 @@ const TransactionList = () => {
       }
       fetchTransactions();
     },
-    [userDetail.locationId]
+    [userDetail]
   );
 
   const handleSearchByMobile = async (locationId, mobile) => {
@@ -76,15 +78,22 @@ const TransactionList = () => {
           reset={handleReset}
           lostKeys={handleLostKeys}
         />
-        {transactions.length > 0
-          ? transactions.map((trans) => (
-              <TransactionCard
-                key={`TransactionCard-${trans.transactionId}`}
-                transaction={trans}
-                checkout={checkout}
-              />
-            ))
-          : "No Vehicles Active at this location"}
+
+        <div className="container-fluid row wrap">
+          {transactions.length > 0
+            ? transactions.map((trans) => (
+                <div
+                  className="col-sm"
+                  key={`Transaction-Container-${trans.transactionId}`}>
+                  <TransactionCard
+                    key={`TransactionCard-${trans.transactionId}`}
+                    transaction={trans}
+                    checkout={checkout}
+                  />
+                </div>
+              ))
+            : "No Vehicles Active at this location"}
+        </div>
       </div>
     );
   }

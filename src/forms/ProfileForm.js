@@ -16,6 +16,14 @@ const ProfileForm = () => {
     phone: userDetail.phone,
   };
 
+  let formType = {
+    username: "text",
+    firstName: "text",
+    lastName: "text",
+    email: "email",
+    password: "password",
+  };
+
   const [formData, setFormData] = useState(INITIAL_STATE);
 
   const handleChange = (e) => {
@@ -46,7 +54,8 @@ const ProfileForm = () => {
             <Input
               id={val}
               key={`Input-${val}`}
-              type={val !== "email" ? "text" : "email"}
+              type={formType[val]}
+              // type={val !== "email" ? "text" : "email"}
               name={val}
               placeholder={val.toLowerCase()}
               value={formData[val]}

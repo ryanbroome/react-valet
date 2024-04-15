@@ -1,7 +1,7 @@
-import { Card, CardBody, CardTitle, CardSubtitle, ListGroup, ListGroupItem, CardText, Button } from "reactstrap";
+import { Card, CardBody, CardSubtitle, ListGroup, ListGroupItem } from "reactstrap";
 
-import React, { useEffect, useState, useContext } from "react";
-import { useParams, useHistory, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import ValetApi from "../api/Api";
 
 const TransactionDetail = () => {
@@ -26,7 +26,7 @@ const TransactionDetail = () => {
   function viewTransaction(transaction) {
     return (
       <Card
-        color="dark"
+        color="light"
         body
         className="text-center">
         <CardBody>

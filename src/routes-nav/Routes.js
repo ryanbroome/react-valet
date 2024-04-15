@@ -16,10 +16,9 @@ import ProfileForm from "../forms/ProfileForm";
 import LoginForm from "../auth/LoginForm";
 import RegisterForm from "../auth/RegisterForm";
 
-import NotFound from "../NotFound";
+import NotFound from "./NotFound";
 
 const Routes = () => {
-  //
   return (
     <Switch>
       <Route

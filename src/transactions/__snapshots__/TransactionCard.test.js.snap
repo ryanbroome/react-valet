@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot with logo 1`] = `
+<DocumentFragment>
+  <div
+    class="text-center card card-body bg-light"
+  >
+    <div
+      class="card-body"
+    >
+      <h6
+        class="card-subtitle"
+      >
+        Ticket: 1
+      </h6>
+      <ul
+        class="list-group list-group-flush"
+      >
+        <li
+          class="list-group-item"
+        >
+          Mobile: 5553334444
+        </li>
+        <li
+          class="list-group-item"
+        >
+          <a
+            href="/transactions/id/1"
+          >
+            Detail 
+          </a>
+        </li>
+      </ul>
+      <ul
+        class="list-group"
+      />
+      <ul
+        class="list-group"
+      >
+        <button
+          class="btn btn-danger"
+          type="button"
+        >
+          CHECKOUT
+        </button>
+      </ul>
+    </div>
+  </div>
+</DocumentFragment>
+`;

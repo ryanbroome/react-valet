@@ -1,7 +1,5 @@
-import React, { useEffect, useState, useContext } from "react";
-import { useParams, useHistory, Link } from "react-router-dom";
-
-// import { Card, CardBody, CardTitle, CardSubtitle, ListGroup, ListGroupItem, CardText, Button } from "reactstrap";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 import LocationCard from "./LocationCard.js";
 import ValetApi from "../api/Api.js";
@@ -16,6 +14,7 @@ const LocationDetail = () => {
       async function fetchLocation() {
         try {
           const locationRes = await ValetApi.getLocationById(id);
+          console.log("LOCATIONRES FOR TESTING ", locationRes.data.location[0]);
           setLocation(locationRes.data.location[0]);
           setLoading(false);
         } catch (err) {

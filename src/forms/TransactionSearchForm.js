@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 
-import { FormGroup, Form, Col, Input, Button } from "reactstrap";
+import { Form, Col, Input, Button, Row, Label, InputGroup } from "reactstrap";
 import UserContext from "../auth/UserContext";
 
 const TransactionSearchForm = ({ search, reset, lostKeys }) => {
@@ -27,42 +27,51 @@ const TransactionSearchForm = ({ search, reset, lostKeys }) => {
   };
 
   return (
-    <div>
-      <Form onSubmit={handleSubmit}>
-        <Button color="primary">Find</Button>
-        {Object.keys(INITIAL_STATE).map((val, idx) => (
-          <Col
-            md={10}
-            key={`Col-${idx}`}>
-            <FormGroup key={`FormGroup-${val}`}>
-              <Input
-                id={val}
-                key={`Input-${val}`}
-                type="text"
-                name={val}
-                placeholder={val.toLowerCase()}
-                value={formData[val]}
-                onChange={handleChange}></Input>
-            </FormGroup>
-          </Col>
-        ))}
-      </Form>
-      <Button
-        color="warning"
-        onClick={() => {
-          reset(userDetail.locationId, "parked");
-        }}>
-        Show All
-      </Button>
+    <Form
+      onSubmit={handleSubmit}
+      className="fixed-bottom bg-dark"
+      zindex="-1">
+      <Row className="row-cols-lg-auto g-3 align-items-end">
+        <Col>
+          <Label
+            className="visually-hidden"
+            htmlFor="mobile"></Label>
+          <InputGroup>
+            <Input
+              id="mobile"
+              type="text"
+              name="mobile"
+              placeholder="mobile"
+              value={formData.mobile}
+              onChange={handleChange}
+            />
+            <Button color="success">Find Mobile</Button>
+          </InputGroup>
+        </Col>
+      </Row>
+      <Row> {` =========================================================`}</Row>
+      <Row>
+        <Col>
+          <Button
+            color="success"
+            onClick={() => {
+              reset(userDetail.locationId, "parked");
+            }}>
+            Show All
+          </Button>
+        </Col>
 
-      <Button
-        color="danger"
-        onClick={() => {
-          lostKeys(userDetail.locationId, userDetail.id);
-        }}>
-        Lost Keys
-      </Button>
-    </div>
+        <Col>
+          <Button
+            color="danger"
+            onClick={() => {
+              lostKeys(userDetail.locationId, userDetail.id);
+            }}>
+            Lost Keys
+          </Button>
+        </Col>
+      </Row>
+    </Form>
   );
 };
 

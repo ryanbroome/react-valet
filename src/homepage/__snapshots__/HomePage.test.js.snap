@@ -3,9 +3,11 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <div>
-    <h1>
-      Welcome To Park Pilot
-    </h1>
+    <img
+      alt="logo"
+      height="300px"
+      src="parkPilot.jpg"
+    />
     <div>
       <div
         class="text-center card card-body bg-light"
@@ -49,6 +51,11 @@ exports[`matches snapshot 1`] = `
           </ul>
         </div>
       </div>
+      <button
+        class="btn btn-danger btn-sm"
+      >
+        Logout
+      </button>
     </div>
   </div>
 </DocumentFragment>
@@ -57,9 +64,11 @@ exports[`matches snapshot 1`] = `
 exports[`matches snapshot when logged out 1`] = `
 <DocumentFragment>
   <div>
-    <h1>
-      Welcome To Park Pilot
-    </h1>
+    <img
+      alt="logo"
+      height="300px"
+      src="parkPilot.jpg"
+    />
     <div>
       <div
         class="text-center card card-body bg-light"
@@ -103,6 +112,11 @@ exports[`matches snapshot when logged out 1`] = `
           </ul>
         </div>
       </div>
+      <button
+        class="btn btn-danger btn-sm"
+      >
+        Logout
+      </button>
     </div>
   </div>
 </DocumentFragment>

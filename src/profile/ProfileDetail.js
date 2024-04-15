@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardBody, CardTitle, CardSubtitle, ListGroup, ListGroupItem, CardText, Button } from "reactstrap";
+import { Card, CardBody, CardTitle, CardSubtitle, ListGroup, ListGroupItem } from "reactstrap";
 
 const ProfileDetail = ({ userDetail }) => {
   return (
