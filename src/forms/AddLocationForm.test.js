@@ -5,7 +5,7 @@ import AddLocationForm from "./AddLocationForm";
 import { MemoryRouter } from "react-router";
 import { MockUserContext } from "../testUtils";
 
-it("matches snapshot", function () {
+it("AddLocationForm: matches snapshot", function () {
   const { asFragment } = render(
     <MemoryRouter>
       <MockUserContext children={<AddLocationForm />}></MockUserContext>
@@ -14,7 +14,7 @@ it("matches snapshot", function () {
   expect(asFragment()).toMatchSnapshot();
 });
 
-it("renders without crashing", function () {
+it("AddLocationForm: renders without crashing", function () {
   render(
     <MemoryRouter>
       <MockUserContext children={<AddLocationForm />}></MockUserContext>

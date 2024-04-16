@@ -4,7 +4,7 @@ import { MemoryRouter } from "react-router";
 import About from "./About";
 import { MockUserContext } from "../testUtils";
 
-it("matches snapshot", function () {
+it("About: matches snapshot", function () {
   const { asFragment } = render(
     <MemoryRouter>
       <MockUserContext>
@@ -15,7 +15,7 @@ it("matches snapshot", function () {
   expect(asFragment()).toMatchSnapshot();
 });
 
-it("matches snapshot when logged out", function () {
+it("About: matches snapshot when logged out", function () {
   const { asFragment } = render(
     <MemoryRouter>
       <MockUserContext currentUser={null}>

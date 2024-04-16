@@ -5,7 +5,7 @@ import LocationDetail from "../location/LocationDetail";
 import { MemoryRouter } from "react-router";
 import { MockUserContext } from "../testUtils";
 
-it("matches snapshot", function () {
+it("LocationDetail: matches snapshot", function () {
   const { asFragment } = render(
     <MemoryRouter>
       <MockUserContext children={<LocationDetail />}></MockUserContext>
@@ -14,7 +14,7 @@ it("matches snapshot", function () {
   expect(asFragment()).toMatchSnapshot();
 });
 
-it("renders without crashing", function () {
+it("LocationDetail: renders without crashing", function () {
   render(
     <MemoryRouter initialEntries={["/locations/id/1"]}>
       <MockUserContext children={<LocationDetail />}></MockUserContext>

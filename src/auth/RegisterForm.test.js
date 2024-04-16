@@ -5,7 +5,7 @@ import RegisterForm from "./RegisterForm";
 import { MemoryRouter } from "react-router";
 import { MockUserContext } from "../testUtils";
 
-it("matches snapshot", function () {
+it("Register Form: matches snapshot", function () {
   const { asFragment } = render(
     <MemoryRouter>
       <MockUserContext children={<RegisterForm />}></MockUserContext>
@@ -14,7 +14,7 @@ it("matches snapshot", function () {
   expect(asFragment()).toMatchSnapshot();
 });
 
-it("renders without crashing", function () {
+it("Register Form: renders without crashing", function () {
   render(
     <MemoryRouter>
       <MockUserContext children={<RegisterForm />}></MockUserContext>
