@@ -19,6 +19,7 @@ const ValidLoginForm = () => {
     }),
     onSubmit: async (values) => {
       login(values.username, values.password);
+      setError(null);
     },
   });
 

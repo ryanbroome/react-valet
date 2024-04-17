@@ -15,18 +15,22 @@ const TransactionList = () => {
   const { userDetail, token, error, setError } = useContext(UserContext);
   const [transactions, setTransactions] = useState([]);
 
-  useEffect(function fetchTransactionsWhenMounted() {
-    async function fetchTransactions() {
-      try {
-        const res = await ValetApi.getAllTransactionsByLocationAndStatus(userDetail.locationId, "parked");
-        setTransactions(res.data.transactions);
-      } catch (err) {
-        setError(err);
-        console.error(err);
+  useEffect(
+    function fetchTransactionsWhenMounted() {
+      async function fetchTransactions() {
+        try {
+          const res = await ValetApi.getAllTransactionsByLocationAndStatus(userDetail.locationId, "parked");
+          setTransactions(res.data.transactions);
+        } catch (err) {
+          setError(err);
+          console.error(err);
+        }
       }
-    }
-    fetchTransactions();
-  }, []);
+      fetchTransactions();
+    },
+    // if broken remove these dependancies
+    [userDetail, setError]
+  );
 
   const handleSearchByMobile = async (locationId, mobile) => {
     try {
