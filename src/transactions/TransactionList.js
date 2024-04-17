@@ -83,19 +83,25 @@ const TransactionList = () => {
         />
 
         <div className="container-fluid row wrap">
-          {transactions.length > 0
-            ? transactions.map((trans) => (
-                <div
-                  className="col-sm"
-                  key={`Transaction-Container-${trans.transactionId}`}>
-                  <TransactionCard
-                    key={`TransactionCard-${trans.transactionId}`}
-                    transaction={trans}
-                    checkout={checkout}
-                  />
-                </div>
-              ))
-            : "No Vehicles Active at this location"}
+          {transactions.length > 0 ? (
+            transactions.map((trans) => (
+              <div
+                className="col-sm"
+                key={`Transaction-Container-${trans.transactionId}`}>
+                <TransactionCard
+                  key={`TransactionCard-${trans.transactionId}`}
+                  transaction={trans}
+                  checkout={checkout}
+                />
+              </div>
+            ))
+          ) : (
+            <div
+              className="spinner-border text-primary"
+              role="status">
+              <span className="visually-hidden"></span>
+            </div>
+          )}
         </div>
       </div>
     );
