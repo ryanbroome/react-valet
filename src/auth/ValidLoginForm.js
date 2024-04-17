@@ -6,7 +6,7 @@ import { FormGroup, Form, Input, Label, Button } from "reactstrap";
 import UserContext from "./UserContext";
 
 const ValidLoginForm = () => {
-  const { login } = useContext(UserContext);
+  const { login, error, setError } = useContext(UserContext);
 
   const formik = useFormik({
     initialValues: {

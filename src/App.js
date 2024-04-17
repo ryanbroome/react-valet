@@ -34,6 +34,8 @@ function App() {
       // save token and userDetails to localStorage to persist if refresh
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("userDetail", JSON.stringify(userRes.data.user));
+
+      setError(null);
       // redirect
       history.push("/transactions/active");
     } catch (err) {
@@ -60,8 +62,10 @@ function App() {
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("userDetail", JSON.stringify(userRes.data.user));
 
+      // reset error
+      setError(null);
+
       // redirect to parked vehicles page
-      // history.push("/vehicles/status/parked");
       history.push("/");
     } catch (err) {
       setError(err);
@@ -86,6 +90,7 @@ function App() {
       if (newUser.username !== username) {
         // how to handle this or if it matters
       }
+      setError(null);
     } catch (err) {
       setError(err);
       console.error(err);
@@ -108,8 +113,7 @@ function App() {
       // const parkOneRes =
       setUserDetail({ ...userDetail, totalParked: userDetail.totalParked + 1 });
 
-      // history.push("/transactions/active");
-
+      setError(null);
       // save to localStorage?
     } catch (err) {
       setError(err);

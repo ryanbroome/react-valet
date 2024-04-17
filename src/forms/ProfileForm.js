@@ -38,7 +38,7 @@ const ProfileForm = () => {
     e.preventDefault();
     update(userDetail.username, { ...formData });
     setFormData(INITIAL_STATE);
-    history.push(`/vehicles/status/parked`);
+    history.push(`/`);
   };
 
   return (
