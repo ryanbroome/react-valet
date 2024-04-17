@@ -1,7 +1,8 @@
 // TODO fix placeholder , Rendered Components vs NavHead component not looking good
+// todo fix error handling . When there is an error, express responds with an error the way we set it up
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import "./App.css";
@@ -14,7 +15,7 @@ import NavHead from "./routes-nav/NavHead";
 function App() {
   const [token, setToken] = useState(() => localStorage.getItem("token") || null);
   const [userDetail, setUserDetail] = useState(JSON.parse(localStorage.getItem("userDetail")) || null);
-
+  const [error, setError] = useState(null);
   const history = useHistory();
 
   const login = async (username, password) => {
@@ -36,6 +37,7 @@ function App() {
       // redirect
       history.push("/transactions/active");
     } catch (err) {
+      setError(err);
       console.error(err);
     }
   };
@@ -62,7 +64,8 @@ function App() {
       // history.push("/vehicles/status/parked");
       history.push("/");
     } catch (err) {
-      console.log(err);
+      setError(err);
+      console.error(err);
     }
   };
 
@@ -84,7 +87,8 @@ function App() {
         // how to handle this or if it matters
       }
     } catch (err) {
-      console.log(err);
+      setError(err);
+      console.error(err);
     }
   };
 
@@ -108,7 +112,8 @@ function App() {
 
       // save to localStorage?
     } catch (err) {
-      console.log(err);
+      setError(err);
+      console.error(err);
     }
   };
 
@@ -120,19 +125,30 @@ function App() {
       alert(`Location with sitename ${sitename} and with ID ${newLocationId} successfully created, you'll want to keep track of that location ID to register new users with`);
       history.push("/");
     } catch (err) {
-      console.log(err);
+      setError(err);
+      console.error(err);
     }
   };
 
+  useEffect(() => {
+    const cleanup = () => {
+      // Reset error state
+      setError(null);
+    };
+
+    return cleanup;
+  }, []);
+
   return (
     <div className="App">
-      <UserContext.Provider value={{ token, userDetail, login, register, update, logout, addVehicle, addLocation }}>
+      <UserContext.Provider value={{ token, userDetail, error, login, register, update, logout, addVehicle, addLocation, setError }}>
         <NavHead />
         <p
           height="200px"
           style={{ margin: "100px" }}>
           {" "}
         </p>
+        {error && <div style={{ color: "red" }}>{error}</div>}
         <Routes />
       </UserContext.Provider>
     </div>

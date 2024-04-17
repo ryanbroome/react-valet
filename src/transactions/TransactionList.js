@@ -12,29 +12,28 @@ import UserContext from "../auth/UserContext";
  * **/
 const TransactionList = () => {
   const history = useHistory();
-  const { userDetail, token } = useContext(UserContext);
+  const { userDetail, token, error, setError } = useContext(UserContext);
   const [transactions, setTransactions] = useState([]);
 
-  useEffect(
-    function fetchTransactionsWhenMounted() {
-      async function fetchTransactions() {
-        try {
-          const res = await ValetApi.getAllTransactionsByLocationAndStatus(userDetail.locationId, "parked");
-          setTransactions(res.data.transactions);
-        } catch (err) {
-          console.log(err);
-        }
+  useEffect(function fetchTransactionsWhenMounted() {
+    async function fetchTransactions() {
+      try {
+        const res = await ValetApi.getAllTransactionsByLocationAndStatus(userDetail.locationId, "parked");
+        setTransactions(res.data.transactions);
+      } catch (err) {
+        setError(err);
+        console.error(err);
       }
-      fetchTransactions();
-    },
-    [userDetail]
-  );
+    }
+    fetchTransactions();
+  }, []);
 
   const handleSearchByMobile = async (locationId, mobile) => {
     try {
       const searchRes = await ValetApi.getActiveTransactionsByMobile(locationId, mobile);
       setTransactions([...searchRes.data.transactions]);
     } catch (err) {
+      setError(err);
       console.log(err);
     }
   };
@@ -45,7 +44,8 @@ const TransactionList = () => {
       setTransactions([...resetRes.data.transactions]);
       history.push("/transactions/active");
     } catch (err) {
-      console.error(`Error resetting getAllTransactionsByLocationAndStatus`);
+      setError(err);
+      console.error(err);
     }
   };
 
@@ -57,7 +57,8 @@ const TransactionList = () => {
       setTransactions(transactions.filter((trans) => trans.transactionId !== transactionId));
       history.push("/addVehicle");
     } catch (err) {
-      console.error(`Error parkOne for username : ${username} vehicleId : ${vehicleId}`);
+      setError(err);
+      console.error(err);
     }
   };
 
@@ -66,6 +67,7 @@ const TransactionList = () => {
       const searchRes = await ValetApi.lostKeys(locationId, userId);
       setTransactions([...searchRes.data.transactions]);
     } catch (err) {
+      setError(err);
       console.log(err);
     }
   };
@@ -73,6 +75,7 @@ const TransactionList = () => {
   function loggedIn(transactions) {
     return (
       <div>
+        {error && <div>{error}</div>}
         <TransactionSearchForm
           search={handleSearchByMobile}
           reset={handleReset}
@@ -101,6 +104,7 @@ const TransactionList = () => {
   function loggedOut() {
     return (
       <div>
+        {error && <div style={{ color: "red" }}>{error}</div>}
         <p>Please Login to see your ActiveGarage</p>
       </div>
     );

@@ -1,47 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LoginForm: matches snapshot 1`] = `
+exports[`ValidLoginForm: matches snapshot 1`] = `
 <DocumentFragment>
   <form
     class=""
   >
-    <h3>
-      Login
-    </h3>
     <div
       class="position-relative form-group"
     >
       <label
         class=""
         for="username"
-      />
+      >
+        username
+      </label>
       <input
+        autocomplete="username"
         class="form-control"
         id="username"
         name="username"
-        placeholder="username"
+        placeholder="enter username here"
         type="text"
         value=""
       />
-    </div>
-    <div
-      class="position-relative form-group"
-    >
       <label
         class=""
         for="password"
-      />
+      >
+        password
+      </label>
       <input
+        autocomplete="current-password"
         class="form-control"
         id="password"
         name="password"
-        placeholder="password"
-        type="text"
+        placeholder="enter password here"
+        type="password"
         value=""
       />
     </div>
     <button
-      class="btn btn-primary"
+      class="btn btn-success"
+      type="submit"
     >
       Login
     </button>

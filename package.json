@@ -19,7 +19,8 @@
     "reactstrap": "^6.5.0",
     "supertest": "^6.3.4",
     "surge": "^0.23.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^1.4.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches snapshot 1`] = `
+exports[`TransactionSearchForm: matches snapshot 1`] = `
 <DocumentFragment>
   <form
     class="fixed-bottom bg-dark"

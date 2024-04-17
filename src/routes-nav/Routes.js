@@ -13,8 +13,11 @@ import TransactionDetail from "../transactions/TransactionDetail";
 import LocationDetail from "../location/LocationDetail";
 
 import ProfileForm from "../forms/ProfileForm";
-import LoginForm from "../auth/LoginForm";
-import RegisterForm from "../auth/RegisterForm";
+// import LoginForm from "../auth/LoginForm";
+import ValidLoginForm from "../auth/ValidLoginForm";
+
+// import RegisterForm from "../auth/RegisterForm";
+import ValidRegisterForm from "../auth/ValidRegisterForm";
 
 import NotFound from "./NotFound";
 
@@ -30,13 +33,14 @@ const Routes = () => {
       <Route
         exact
         path="/login">
-        <LoginForm />
+        <ValidLoginForm />
+        {/* <LoginForm /> */}
       </Route>
 
       <Route
         exact
         path="/register">
-        <RegisterForm />
+        <ValidRegisterForm />
       </Route>
 
       <Route
