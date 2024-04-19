@@ -1,6 +1,3 @@
-// TODO fix placeholder , Rendered Components vs NavHead component not looking good
-// todo fix error handling . When there is an error, express responds with an error the way we set it up
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
@@ -43,7 +40,7 @@ function App() {
       console.error(err);
     }
   };
-
+  // method to register a new user and save token / userDetails
   const register = async (username, password, firstName, lastName, email, phone, locationId) => {
     try {
       // make api call: register user
