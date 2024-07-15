@@ -13,7 +13,7 @@ function App() {
   // check localstorage for "token" if there set it to token. if not set token to null
   const [token, setToken] = useState(() => localStorage.getItem("token") || null);
 
-  //check localstorage for "userDetail" if there set it to userDetail. if not set userDetail to null, JSON.parse (JSON string => returns JS object).
+  //check localstorage for "userDetail" if there set it to userDetail. if not set userDetail to null, JSON.parse (JSON string => returns JS object)
   const [userDetail, setUserDetail] = useState(JSON.parse(localStorage.getItem("userDetail")) || null);
 
   // not sure if this is used anywhere else or why it's here. would be to show error to UI ?
@@ -52,11 +52,14 @@ function App() {
     }
   };
 
-  // method to register a new user and save token / userDetails
+  /** Register User
+   *  method to register a new user and persist  token / userDetails
+   */
   const register = async (username, password, firstName, lastName, email, phone, locationId) => {
     try {
-      // make api call: register user
+      // 1 make api call: register user
       const res = await ValetApi.registerUser(username, password, firstName, lastName, email, phone, locationId);
+
       // make api call: get user by username
       const userRes = await ValetApi.getUser(username);
       // set state: token, userDetails

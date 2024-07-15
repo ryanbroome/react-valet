@@ -5,6 +5,7 @@ const LocationCard = ({ location }) => {
   if (!location) {
     return null;
   }
+  console.log(location);
   return (
     <Card
       color="light"

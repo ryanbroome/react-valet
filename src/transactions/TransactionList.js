@@ -85,7 +85,7 @@ const TransactionList = () => {
           reset={handleReset}
           lostKeys={handleLostKeys}
         />
-
+        {/* Transaction List container, filled with Transaction Cards */}
         <div className="container-fluid row wrap">
           {transactions.length > 0 ? (
             transactions.map((trans) => (
@@ -103,7 +103,7 @@ const TransactionList = () => {
             <div
               className="spinner-border text-primary"
               role="status">
-              <span className="visually-hidden"></span>
+              <span className="visually-hidden">No Vehicles</span>
             </div>
           )}
         </div>

@@ -9,10 +9,9 @@ const TransactionCard = ({ transaction, checkout }) => {
       body
       className="text-center">
       <CardBody>
-        <CardSubtitle>Ticket: {transaction.ticketNum}</CardSubtitle>
-
+        <CardSubtitle>T# {transaction.ticketNum}</CardSubtitle>
         <ListGroup flush>
-          <ListGroupItem>Mobile: {transaction.mobile}</ListGroupItem>
+          {/* <ListGroupItem>Mobile: {transaction.mobile}</ListGroupItem> */}
           <ListGroupItem>
             <Link to={`/transactions/id/${transaction.transactionId}`}>Detail </Link>
           </ListGroupItem>
@@ -20,7 +19,8 @@ const TransactionCard = ({ transaction, checkout }) => {
         <ListGroup></ListGroup>
         <ListGroup>
           <Button
-            color="danger"
+            color="primary
+            "
             onClick={() => {
               checkout(transaction.username, transaction.vehicleId);
             }}>
