@@ -9,7 +9,7 @@ const TransactionCard = ({ transaction, checkout }) => {
       body
       className="text-center">
       <CardBody>
-        <CardSubtitle>T# {transaction.ticketNum}</CardSubtitle>
+        <CardSubtitle>{transaction.ticketNum}</CardSubtitle>
         <ListGroup flush>
           {/* <ListGroupItem>Mobile: {transaction.mobile}</ListGroupItem> */}
           <ListGroupItem>
