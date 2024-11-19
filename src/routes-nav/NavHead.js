@@ -86,49 +86,51 @@ const NavHead = () => {
 
   function isLoggedOut() {
     return (
-      <Nav
-        justified
-        pills>
-        <NavItem>
-          <NavLink
-            exact
-            to="/"
-            className="nav-link"
-            activeClassName="active">
-            Home
-          </NavLink>
-        </NavItem>
+      <Navbar>
+        <Nav
+          justified
+          pills>
+          <NavItem>
+            <NavLink
+              exact
+              to="/"
+              className="nav-link"
+              activeClassName="active">
+              Home
+            </NavLink>
+          </NavItem>
 
-        <NavItem>
-          <NavLink
-            exact
-            to="/about"
-            className="nav-link"
-            activeClassName="active">
-            About
-          </NavLink>
-        </NavItem>
+          <NavItem>
+            <NavLink
+              exact
+              to="/about"
+              className="nav-link"
+              activeClassName="active">
+              About
+            </NavLink>
+          </NavItem>
 
-        <NavItem>
-          <NavLink
-            exact
-            to="/login"
-            className="nav-link"
-            activeClassName="active">
-            Login
-          </NavLink>
-        </NavItem>
+          <NavItem>
+            <NavLink
+              exact
+              to="/login"
+              className="nav-link"
+              activeClassName="active">
+              Login
+            </NavLink>
+          </NavItem>
 
-        <NavItem>
-          <NavLink
-            exact
-            to="/register"
-            className="nav-link"
-            activeClassName="active">
-            New User
-          </NavLink>
-        </NavItem>
-      </Nav>
+          <NavItem>
+            <NavLink
+              exact
+              to="/register"
+              className="nav-link"
+              activeClassName="active">
+              New User
+            </NavLink>
+          </NavItem>
+        </Nav>
+      </Navbar>
     );
   }
 
